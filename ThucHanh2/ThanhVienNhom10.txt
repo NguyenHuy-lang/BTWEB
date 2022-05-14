@@ -1,0 +1,3 @@
+Nguyễn Quang Huy làm phần get all products và tạo product.
+Nguyễn Thành Vinh làm phần edit product.
+Trịnh Văn Tùng làm delete product và validate
