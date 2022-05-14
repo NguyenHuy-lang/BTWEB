@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Confirm</title>
+<link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+	<h1>Are you sure you want to delete this product?</h1>
+
+	<p>
+		Product Code: <b th:text="${product.code}"></b>
+	</p>
+
+	<p>
+		Product Description: <b th:text="${product.description}"></b>
+	</p>
+
+	<p>
+		Product Price: <b th:text="${product.price}"></b>
+	</p>
+
+
+	<form th:action="@{/products/delete}" method="post">
+		<input type="hidden" name="code" th:value="${product.code}">
+		<div class="d-flex">
+			<button type="submit">Yes</button>
+			&nbsp; <a th:href="@{/products}"><button
+					type="button">No</button></a>
+		</div>
+	</form>
+
+</body>
+</html>

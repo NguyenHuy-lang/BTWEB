@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Product</title>
+<link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+	<h1>Product</h1>
+	<form th:action="${action == 'create' ? '/products/create' : '/products/edit'}" method="post" th:object="${product}">
+		<div class="form-block">
+			<label>Product Code</label> <input type="text"
+				placeholder="Product Code" th:field="*{code}" th:value="${product.code}">
+			<div class="invalid-feedback d-block"
+				th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></div>
+		</div>
+		<div class="form-block">
+			<label>Product Description</label> <input type="text"
+				placeholder="Product Description" th:field="*{description}"
+				th:value="${product.description}">
+			<div class="invalid-feedback d-block"
+				th:if="${#fields.hasErrors('description')}"
+				th:errors="*{description}"></div>
+		</div>
+		<div class="form-block">
+			<label>Product Price</label> <input type="number" step="0.001"
+				placeholder="Product Price" th:field="*{price}" th:value="${product.price}">
+			<div class="invalid-feedback d-block"
+				th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+		</div>
+		<div class="form-block" style="margin-left: 205px;">
+			<div class="d-flex">
+				<button type="submit">
+					<th:block th:if="${action == 'create'}">
+						Create Product
+					</th:block>
+					<th:block th:if="${action == 'edit'}">
+						Edit Product
+					</th:block>
+				</button>
+				&nbsp; <a th:href="@{/products}"><button type="button">View
+						Products</button></a>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
