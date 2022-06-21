@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+	<title>Login</title>
+	<meta charset="utf-8">
+	</head>
+	<body>
+		<form th:action="@{/login}" method="POST" th:object="${user}">
+			<label> Username </label>
+			<input type="text" name="username" th:value="${user.username}" th:field="*{username}">
+			<div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+			<label> Password </label>
+			<input type="text" name="pass" th:value="${user.password}" th:field="*{password}">
+			 <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+			<button type="submit">Submit</button>
+		
+		</form>
+	</body>
+
+</html>

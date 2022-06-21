@@ -1,0 +1,39 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<title>Thêm sản phẩm mới</title>
+	</head>
+	<body>
+		<form th:action="'/products/create'" method="post" th:object="${product}">
+			<div>
+				<label>Ma san pham </label>
+				<input type="text" placeholder="ma san pham" th:value="${product.code}" th:field="*{code}">
+				<div
+					th:if="${#fields.hasErrors('code')}"
+					th:errors="*{code}" style="color:green">
+				</div>
+			</div>
+			
+			<div>
+				<label> miêu tả sản phầm </label>
+				<input type="text" placeholder="mieu ra san phâm" th:value="${product.description}" th:field="*{description}">
+				<div 
+				 	th:if="${#fields.hasErrors('description')}"
+				 	th:errors="*{description}" style="color:red"
+				</div>
+			</div>
+			
+			<div>
+				<label> gia san pham </label>
+				<input type="text" placeholder="gia san pham" th:value="${product.price}" th:field="*{price}">
+				<div
+				th:if="${#fields.hasErrors('price')}"
+				th:errors="*{price}" style="color:red">
+				</div>
+			</div>
+			<button type="submit">xac nhan</button>
+			<a th:href="'/products'"><button type="button">huy</button></a>
+			
+		</form>
+	</body>
+	</html>

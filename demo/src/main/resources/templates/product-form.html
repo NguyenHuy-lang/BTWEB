@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>chi tiet san pham</title>
+</head>
+<body>
+	<h1>Product</h1>
+	<form th:action="${action == 'create' ? '/products/create' : '/products/edit'}" method="post" th:object="${product}">
+		<div>
+			<label>Product code </label>
+			<input type="text" placeholder="Product code" th:value="${product.code}" th:field="*{code}">
+		</div>
+		
+		<div>
+			<label>Description</label>
+			<input type="text" placeholder="description" th:value="${product.description}" th:field="*{description}">
+		</div>	
+		
+		<div>
+			<label>Price</label>
+			<input type="text" placeholder="price" th:value="${product.price}" th:field="*{price}">
+		</div>
+		
+		<button type="submit">
+			<th:block th:if="${action == 'create'}">
+				Create Prodcut
+			</th:block>
+			<th:block th:if="${action == 'edit'}">
+				edit Product
+			</th:block>
+			<a th:href="@{/products}"><button type="button">View product</button></a>
+			
+		</button>
+		
+	</form>
+	
+</body>
+</html>

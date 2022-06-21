@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>Giao dien xac nhan xoa </title>
+</head>
+<body>
+	<h1>Ban da chac chan muon xoa san pham nay</h1>
+	<div>
+		<span>Product code <b th:text="${product.code}"></b></span>
+	</div>
+	<div>
+		<span>Product description <b th:text="${product.description}"></b></span>
+	</div>
+	<div>
+		<span>Product Price <b th:text="${product.price}"></b></span>
+	</div>
+	<form th:action="@{/products/delete}" method="post">
+		<input type="hidden" name="code" th:value="${product.code}">
+		<button type="submit">yes</button>
+		<a th:href="'/products'"><button type="button">no</button></a>
+	</form>
+	
+</body>
+</html>

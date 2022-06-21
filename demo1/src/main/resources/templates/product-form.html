@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>Trang chu</title>
+</head>
+<body>
+	<form th:action="'/products/edit'" method="post" th:object="${product}">
+		<div>
+			<label>Product Code</label>
+			<input type="text" th:value="${product.code}" th:field="*{code}">
+		</div>
+		<div>
+			<label>Product description</label>
+			<input type="text" th:value="${product.description}" th:field="*{description}">
+		</div>
+		<div>
+			<label>Product price </label>
+			<input type="text" th:value="${product.price}" th:field="*{price}">
+		</div>		
+		<button type="submit">submit</button>
+	</form>
+	
+</body>
+</html>

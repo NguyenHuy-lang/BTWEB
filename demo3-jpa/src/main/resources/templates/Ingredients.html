@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Danh sach Ingredient</title>
+	
+	</head>
+	<body>
+		<form th:action="@{/order/save}" method="POST" th:object="${Taco}">
+			
+			<p>WRAP</p>
+			<div>
+				
+				<th:block th:each="ingredients:${WRAP}">
+					<input type="checkbox" name="ingredients" th:value="${ingredients.id}">
+					<label th:text="${ingredients.name}"></label><BR>
+				</th:block>	
+			</div>
+			
+			<p>PROTEIN</p>
+			<div>
+				
+				<th:block th:each="ingredients:${PROTEIN}">
+					<input type="checkbox" name="ingredients" th:value="${ingredients.id}">
+					<label th:text="${ingredients.name}"></label><BR>
+				</th:block>	
+			</div>
+			
+			
+			<p>VEGGIES</p>
+			<div>
+				
+				<th:block th:each="ingredients:${VEGGIES}">
+					<input type="checkbox" name="ingredients" th:value="${ingredients.id}">
+					<label th:text="${ingredients.name}"></label><BR>
+				</th:block>	
+			</div>
+			
+			
+			<p>CHEESE</p>
+			<div>
+				
+				<th:block th:each="ingredients:${CHEESE}">
+					<input type="checkbox" name="ingredients" th:value="${ingredients.id}">
+					<label th:text="${ingredients.name}"></label><BR>
+				</th:block>	
+			</div>
+			
+			<p>SAUCE</p>
+			<div>
+				
+				<th:block th:each="ingredients:${SAUCE}">
+					<input type="checkbox" name="ingredients" th:value="${ingredients.id}">
+					<label th:text="${ingredients.name}"></label><BR>
+				</th:block>	
+			</div>
+			<label>Ten taco </label>
+			<input type="text" placeholder="nhap ten banh" th:field="*{name}" th:value="${Taco.name}">
+			<button type="submit">submit</button>
+		</form>
+	</body>
+
+
+
+
+
+
+
+</html>
