@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Danh sach sinh vien</title>
+
+</head>
+
+
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>name</th>
+				<th>dob</th>
+				<th>department</th>
+				<th>approved</th>
+			
+			</tr>
+		</thead>
+		<tbody>
+			
+			<th:block th:each="st:${student}">
+				<tr>
+					<td th:text="${st.id}"></td>
+					<td th:text="${st.name}"></td>
+					<td th:text="${st.dob}"></td>
+					<td th:text="${st.department}"></td>
+					<td th:text="${st.approved}"></td>
+					<td><a th:href="'/student/save/'+${st.id}">approved</a></td>
+				</tr>
+				
+				
+				
+			</th:block>
+			
+				
+		</tbody>
+	
+	
+	</table>
+
+
+</body>
+</html>
